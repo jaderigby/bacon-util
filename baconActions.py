@@ -8,6 +8,12 @@ except:
 	action = None
 
 if action == None:
+	print '''
+[ new ]		Create a new item
+[ add ]		Add an action
+'''
+
+elif action == 'new':
 	create.execute()
 
 elif action == 'add':

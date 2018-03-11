@@ -38,7 +38,7 @@ def execute():
 		FILE.write(data)
 		FILE.close()
 
-	executionString = '"python $REPO_PATH2/{}/actions.py"'.format(name)
+	executionString = '"python {}bash-tools/{}/actions.py"'.format(origin, name)
 
 	write_to_bashrc('{}bash-tools/.bashrc'.format(origin), alias, executionString)
 

@@ -1,5 +1,5 @@
 import sys, action, status, helpers
-# [ new import hook ]
+# new imports start here
 
 # settings = helpers.get_settings()
 
@@ -14,4 +14,4 @@ if action == 'status' or action == None:
 elif action == 'action':
 	# You will want to change the name to something specific, when developing
 	action.execute()
-# [ new action hook ]
+# new actions start here

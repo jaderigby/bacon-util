@@ -53,13 +53,13 @@ NEW ACTION:     {}
 LOCATION:       {}'''.format(newList[selection], newFeature, newAction, finalPath)
         write_file(finalPath, template)
         data = read_file(fullPath + '/actions.py')
-        data = data.replace('# [ new import hook ]', '''import {}
-# [ new import hook ]'''.format(newFeature))
+        data = data.replace('# new imports start here', '''import {}
+# new imports start here'''.format(newFeature))
         newContent = '''
 elif action == "{newAction}":
     {newFeature}.execute()
-# [ new action hook ]'''.format(newFeature=newFeature, newAction=newAction)
-        data = data.replace("# [ new action hook ]", newContent)
+# new actions start here'''.format(newFeature=newFeature, newAction=newAction)
+        data = data.replace("# new actions start here", newContent)
         write_file(fullPath + '/actions.py', data)
     print
     print "[ Process Completed ]"

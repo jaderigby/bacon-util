@@ -3,8 +3,6 @@ from settings import settings
 
 profilePath = settings['profile_url'] + settings['profile']
 
-print("profilePath: " + profilePath)
-
 def load_profile():
 	return json.loads(read_file(profilePath))
 
