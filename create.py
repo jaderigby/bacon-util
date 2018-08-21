@@ -2,7 +2,7 @@
 #
 #	HEADER
 #
-import sys, re, subprocess
+import sys, re, subprocess, os
 
 from scab import scab as s
 
@@ -10,7 +10,8 @@ from scab import scab as s
 
 def execute():
 
-	origin = '/Users/jaderigby/Documents/'
+	relativeUserPath = os.path.expanduser('~')
+	origin = '{}/Documents/'.format(relativeUserPath)
 
 	t = s.scab()
 	t.scan('{}bash-tools/bacon-util/template'.format(origin))
@@ -21,6 +22,8 @@ def execute():
 	alias = raw_input("What would you like the alias to be? ")
 
 	def write_to_bashrc(FILEPATH, ALIAS, EXECUTE):
+		if not os.path.exists(FILEPATH):
+			subprocess.call(['touch', FILEPATH])
 		FILE = open(FILEPATH, 'r')
 		data = FILE.read()
 		FILE.close()
